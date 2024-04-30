@@ -1,0 +1,43 @@
+name: :lock: Security Report
+description: File a security report here
+title: "[SECURITY]: "
+labels: ["security"]
+assignees: ["<My Github Username>"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this security report!!!
+  - type: checkboxes
+    id: new-security
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered.
+      options:
+      - label: I have searched the existing issues
+        required: true
+  - type: textarea
+    id: security-description
+    attributes:
+      label: Description of the security issue
+      description: Tell us what bug you encountered and what should have happened
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: Please write the steps in a list form
+    validations:
+      required: true
+  - type: dropdown
+    id: versions
+    attributes:
+      label: Which version of the app are you using?
+      description: If this issue is occurring on more than 1 version of the app, select the appropriate versions.
+      multiple: true
+      options:
+       - 1.0.0
+    validations:
+      required: true
