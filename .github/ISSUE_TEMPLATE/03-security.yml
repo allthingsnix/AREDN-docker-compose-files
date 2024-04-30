@@ -16,6 +16,15 @@ body:
       options:
       - label: I have searched the existing issues
         required: true
+  - type: markdown
+    attributes:
+      value: |
+        ***
+  - type: input
+    id: security-cve
+    attributes:
+      label: Please list an CVE's you think may be ralated
+      description: Please list any know CVE reports for this suspected security related issue/
   - type: textarea
     id: security-description
     attributes:
@@ -28,9 +37,40 @@ body:
     attributes:
       label: Steps To Reproduce
       description: Steps to reproduce the behavior.
-      placeholder: Please write the steps in a list form
+      placeholder: |
+        1. In this environment...
+        2. With this config...
+        3. Run '...'
+        4. See error...
+    validations:
+      required: false
+  - type: textarea
+    id: security-results
+    attributes:
+      label: Expected Results
+      description: What you expect to happen instead of what is actually happening
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      description: How severe is this issue?
+      multiple: false
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
     validations:
       required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Location of impacted source code (if known)
+      description: Links to code where this issue is present
+    validations:
+      required: false
   - type: dropdown
     id: versions
     attributes:
