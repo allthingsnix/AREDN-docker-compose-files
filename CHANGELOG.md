@@ -1,5 +1,7 @@
 # Unreleased
 
+* Added Security reporting form in `.github/ISSUE_TEMPLATES`
+* Added CODE_OF_CONDUCT.md and SECURITY.md
 
 # v.1.0.0
 
