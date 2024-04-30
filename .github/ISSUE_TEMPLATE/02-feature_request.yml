@@ -1,0 +1,33 @@
+name: 🚀Feature request
+description: Suggest and idea for improvement
+title: "[Feat]: "
+labels: ["Enhancement"]
+assignees: ["<My Gitea Username>"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!!!
+  - type: checkboxes
+    id: new-feature
+    attributes:
+      label: Is there an existing issue/feature for this?
+      description: Please search to see if an issue or feature request already exists for this.
+      options:
+      - label: I have searched the existing issues
+        required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description of the feature
+      description: Tell us what this feature is about and what it will do.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: What value will this feature add?
+      description: Provide examples of what value will be added by implementing the feature.
+      placeholder: Please write the values in a list form
+    validations:
+      required: true
