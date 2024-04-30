@@ -1,4 +1,4 @@
-name: :lock: Security Report
+name: Security Report
 description: File a security report here
 title: "[SECURITY]: "
 labels: ["security"]
