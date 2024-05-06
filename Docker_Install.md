@@ -1,8 +1,3 @@
----
-github: none
-include_toc: true
----
-
 # Docker Installation
 
 Official Docker intalltion steps can be found on [docs.docker.com](https://docs.docker.com/engine/install/). 
