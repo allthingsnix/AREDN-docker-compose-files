@@ -1,5 +1,5 @@
 ---
-gitea: none
+github: none
 include_toc: true
 ---
 
