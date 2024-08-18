@@ -2,6 +2,7 @@
 
 * Added Security reporting form in `.github/ISSUE_TEMPLATES`
 * Added CODE_OF_CONDUCT.md and SECURITY.md
+* Added openldap files
 
 # v.1.0.0
 
