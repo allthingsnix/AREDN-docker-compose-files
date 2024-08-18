@@ -1,10 +1,10 @@
-# Unreleased
+# v1.1.0
 
 * Added Security reporting form in `.github/ISSUE_TEMPLATES`
 * Added CODE_OF_CONDUCT.md and SECURITY.md
 * Added openldap files
 
-# v.1.0.0
+# v1.0.0
 
 * Inital Repo Creation
 * added gitea files
