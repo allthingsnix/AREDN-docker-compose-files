@@ -20,4 +20,5 @@ _Optional; instructions to reviewers, plans for how to release this, dependencie
 - [ ] Resolves issue [#xxx](#)
 - [ ] Upgraded tooling platform versions and dependencies (as needed)
 - [ ] Tests added/passed
+   - [ ] Tested Locally
 - [ ] Schema updated (if necessary)

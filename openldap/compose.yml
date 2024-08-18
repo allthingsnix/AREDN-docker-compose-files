@@ -1,0 +1,56 @@
+secrets:
+  ldap_admin_password:
+    file: ./secrets/ldap_admin_password.txt
+  ldap_config_password:
+    file: ./secrets/ldap_config_password.txt
+  ldap_readonly_password:
+    file: ./secrets/ldap_readonly_password.txt
+
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    hostname: openldap
+    secrets:
+      - ldap_admin_password
+      - ldap_config_password
+      - ldap_readonly_password
+    ports: 
+      - "389:389"
+    volumes:
+      - ./openldap_data/slapd/database:/var/lib/ldap
+      - ./openldap_data/slapd/config:/etc/ldap/slapd.d
+    environment: 
+      UID: 1000
+      GID: 1000
+      LDAP_ORGANISATION: AREDN
+      LDAP_DOMAIN: "local.mesh"
+      LDAP_ADMIN_USERNAME: admin
+      LDAP_ADMIN_PASSWORD_FILE: /run/secrets/ldap_admin_password
+      LDAP_CONFIG_PASSWORD_FILE: /run/secrets/ldap_config_password
+      LDAP_BASE_DN: "dc=local,dc=mesh"
+      LDAP_READONLY_USER: true
+      LDAP_READONLY_USER_USERNAME: user-ro
+      LDAP_READONLY_USER_PASSWORD_FILE: /run/secrets/ldap_readonly_password
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    hostname: phpldapadmin
+    ports: 
+      - "8480:80"
+    environment: 
+      UID: 1000
+      GID: 1000
+      PHPLDAPADMIN_LDAP_HOSTS: ldap-host
+      PHPLDAPADMIN_HTTPS: false
+      PHPLDAPADMIN_LDAP_CLIENT_TLS: false
+      LDAP_CLIENT_SSL_HELPER_PREFIX: ldap
+    depends_on:
+      - openldap
+    links:
+      - openldap:ldap-host
+
+networks:
+  openldap:
+    driver: bridge
